@@ -43,11 +43,9 @@
             ut.name,
             ut.email,
             ut.create_date,
-            ut.update_date,
-
+            ut.update_date
         from
             user_tb ut
-
         where
             username = #{username}
     </select>

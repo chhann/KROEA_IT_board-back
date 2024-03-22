@@ -4,6 +4,7 @@ package com.study.koreaItboard.controller.advice;
 import com.study.koreaItboard.exception.SaveException;
 import com.study.koreaItboard.exception.ValidException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -18,6 +19,11 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler(ValidException.class)
     public ResponseEntity<?> validException(ValidException e) {
         return ResponseEntity.badRequest().body(e.getErrorMap());
+    }
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<?> UsernameNotFoundException(UsernameNotFoundException e){
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 
 }
