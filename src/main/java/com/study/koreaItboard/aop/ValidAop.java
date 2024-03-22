@@ -43,16 +43,16 @@ public class ValidAop {
         }
 
         // 중복검사
-        if(methodName.equals("signup")) {
+        if (methodName.equals("signup")) {
             SignupReqDto signupReqDto = null;
 
-            for(Object arg : args) {
-                if(arg.getClass() == SignupReqDto.class){
+            for (Object arg : args) {
+                if (arg.getClass() == SignupReqDto.class) {
                     signupReqDto = (SignupReqDto) arg;
                 }
             }
 
-            if(userMapper.findUserByUsername(signupReqDto.getUsername()) != null){
+            if (userMapper.findUserByUsername(signupReqDto.getUsername()) != null) {
                 ObjectError objectError = new FieldError("username", "username", "이미 존재하는 사용자이름입니다.");
                 bindingResult.addError(objectError);
             }
