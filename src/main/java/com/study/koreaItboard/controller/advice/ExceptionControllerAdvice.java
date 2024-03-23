@@ -4,6 +4,7 @@ package com.study.koreaItboard.controller.advice;
 import com.study.koreaItboard.exception.SaveException;
 import com.study.koreaItboard.exception.ValidException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -26,4 +27,8 @@ public class ExceptionControllerAdvice {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<?> badCredentialsException (BadCredentialsException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
 }

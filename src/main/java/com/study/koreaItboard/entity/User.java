@@ -5,8 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -20,6 +23,22 @@ public class User {
     private String email;
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
+
+    List<RoleRegister> roleRegisters;
+
+    public List<SimpleGrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+        for(RoleRegister roleRegister : roleRegisters) {
+            authorities.add(new SimpleGrantedAuthority(roleRegister.getRole().getRoleName()));
+        }
+
+        return authorities;
+    }
+
+
+
+
 
     public PrincipalUser toPrincipalUser() {
         return PrincipalUser.builder()
