@@ -1,6 +1,6 @@
 package com.study.koreaItboard.entity;
 
-import com.study.koreaItboard.security.handler.PrincipalUser;
+import com.study.koreaItboard.security.PrincipalUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

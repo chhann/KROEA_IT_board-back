@@ -49,8 +49,8 @@ public class JwtAuthenticationFilter extends GenericFilter {
             // authentication ContextHolder를 통해 등록하기
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            filterChain.doFilter(request, response);
         }
 
+        filterChain.doFilter(request, response);
     }
 }

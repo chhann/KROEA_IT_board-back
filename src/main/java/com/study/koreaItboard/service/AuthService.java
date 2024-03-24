@@ -35,7 +35,7 @@ public class AuthService {
         successCount += userMapper.saveRole(user.getUserId(), 1);
 
         if(successCount < 2) {
-            throw  new SaveException();
+            throw new SaveException();
         }
     }
 

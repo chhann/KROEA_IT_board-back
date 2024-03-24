@@ -1,4 +1,4 @@
-package com.study.koreaItboard.security.handler;
+package com.study.koreaItboard.security;
 
 import lombok.Builder;
 import lombok.Data;

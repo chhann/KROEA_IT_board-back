@@ -30,7 +30,7 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> signin(@RequestBody SigninDto signinDto){
-
+        System.out.println(signinDto);
         return ResponseEntity.ok(authService.signin(signinDto));
     }
 }

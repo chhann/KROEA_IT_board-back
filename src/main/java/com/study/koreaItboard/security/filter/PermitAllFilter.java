@@ -28,12 +28,13 @@ public class PermitAllFilter extends GenericFilter {
         String uri = request.getRequestURI();
         request.setAttribute("isPermitAll",false);
 
+
+
         for(String anMatcher : antMatchers) {
             if(uri.startsWith(anMatcher)) {
                 request.setAttribute("isPermitAll", true);
             }
         }
-
 
         filterChain.doFilter(request, response);
     }

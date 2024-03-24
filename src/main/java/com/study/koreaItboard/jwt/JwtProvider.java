@@ -2,7 +2,7 @@ package com.study.koreaItboard.jwt;
 
 import com.study.koreaItboard.entity.User;
 import com.study.koreaItboard.repository.UserMapper;
-import com.study.koreaItboard.security.handler.PrincipalUser;
+import com.study.koreaItboard.security.PrincipalUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
